@@ -17,11 +17,23 @@
 //   </div>
 // );
 class App extends React.Component  {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selected: exampleVideoData[0]
+    };
+  }
+
+  onVidClick() {
+    this.setState({
+      //selected: exampleVideoData will change when clicked so that it will become the clicked video
+    });
   }
 
   render() {
+
+ 
     return (
       <div>
         <nav className="navbar">
@@ -31,9 +43,9 @@ class App extends React.Component  {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={exampleVideoData[0]} />
+            <VideoPlayer video={this.state.selected} />
           </div>
-          <div className="col-md-5">
+          <div className="col-md-5" >
             <VideoList videos={exampleVideoData} />
           </div>
         </div>
