@@ -4,13 +4,8 @@ class App extends React.Component  {
     super(props);
 
     this.state = {
-      selected: exampleVideoData[0],
-      allTheVideos: exampleVideoData
-    };
-
-    this.options = {
-      //query: text,
-      max: '25'
+      selected: {},
+      allTheVideos: []
     };
   }
 
