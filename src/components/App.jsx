@@ -15,23 +15,26 @@ class App extends React.Component  {
   }
 
   handleClick(video) {
-    
-    this.setState((state) => ({selected: state = video}));
+    this.setState({selected: video});
   }
   
-  handleSubmit(keyWord) {
-    // searchYouTube({max: 25, query: event, key: YOUTUBE_API_KEY}, function(data){
-    //   this.setState((state) => ({allTheVideos: state = data.items}))
-    // })
-    //console.log(keyWord);
+  handleSearch(keyWord) {
+    // console.log('THIS SHOULD NOT BE CONSOLE LOGGING');
+    // console.log(keyWord);
+    const app = this;
+    app.props.searchYouTube({ max: 25, query: keyWord, key: window.YOUTUBE_API_KEY }, function(data){
+      app.setState({allTheVideos: data.items});
+    });
+    console.log(keyWord);
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search handleSubmit={this.handleSubmit.bind(this)}/>
+            <Search handleSearch={this.handleSearch.bind(this)}/>
           </div>
         </nav>
         <div className="row"> 
