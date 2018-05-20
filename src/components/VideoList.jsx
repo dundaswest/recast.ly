@@ -1,13 +1,11 @@
-var VideoList = (props) => (
+var VideoList = ({videos,handleVideoTitleClick}) => (
   <div className="video-list">
-    {props.videos.map(video => 
-      <VideoListEntry video={video} handleClick = {props.handleClick}/>
+    {videos.map((video) =>
+      <VideoListEntry video = {video} handleVideoTitleClick = {handleVideoTitleClick}/>
     )}
   </div>
 );
- 
 
-//var clickHandle = function
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
 VideoList.propTypes = {
@@ -16,4 +14,3 @@ VideoList.propTypes = {
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.
-window.VideoList = VideoList;
